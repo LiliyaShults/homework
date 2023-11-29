@@ -4,23 +4,16 @@ import data.AnimalData;
 import data.CommandsData;
 import factory.AnimalFactory;
 import validators.DataValidator;
-
 import java.util.*;
 import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args) {
-       // Animal animal = new Animal("Murzik", 5, 12,"Белый");
-       //  animal.saySay();
-        // animal.sayDrink();
-
-       // System.out.println(animal);
-
 
         Scanner scanner = new Scanner(System.in);
         List<Animal> animalList = new ArrayList<>();
 
-        AnimalFactory animalFactory =new AnimalFactory();
+        AnimalFactory animalFactory = new AnimalFactory();
         DataValidator commandValidator = new DataValidator();
 
         while (true) {
@@ -36,7 +29,7 @@ public class Main {
                 case ADD:
                     String animalTypeStr = "";
                     while (true) {
-                        System.out.println("Ввудите тип животного: cat/dog/duck");
+                        System.out.println("Введите тип животного: cat/dog/duck");
                         animalTypeStr = scanner.next().toUpperCase().trim();
 
                         if(commandValidator.isValidate(animalTypeStr, AnimalData.values())) {
@@ -47,8 +40,20 @@ public class Main {
 
                     Animal animal = animalFactory.create(AnimalData.valueOf(animalTypeStr));
 
+                 //   System.out.println("Введите имя животного");
+                   // animal.setName(scanner.next());
                     System.out.println("Введите имя животного");
                     animal.setName(scanner.next());
+
+                    while (true) {
+                        System.out.println("Введите имя животного а кирилице");
+                        String nameStr = scanner.next();
+                        if(commandValidator.isDataByRegExp(nameStr, Pattern.compile("^[а-яА-Я]+$"))) {
+                            animal.setName(nameStr);
+                            break;
+                        }
+                        System.out.println("Вы ввели неверный цвет животного");
+                    }
 
                     System.out.println("Введите возраст животного");
                     animal.setAge(scanner);

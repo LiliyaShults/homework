@@ -14,12 +14,11 @@ public class AnimalFactory {
     private String color = "";
 
 
-    public AnimalFactory(String name, int age, int weight, String color) {
+    public AnimalFactory() {
         this.name = name;
         this.age = age;
         this.weight = weight;
         this.color = color;
-
     }
 
     public Animal create(AnimalData animalData){
