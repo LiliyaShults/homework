@@ -9,37 +9,23 @@ public class Animal {
     private String name;
     private String color;
     private int weight;
-   private int age;
-   private String str_age;
+    private int age;
 
     private DataValidator dataValidator = new DataValidator();
 
     public Animal(String name, int age, int weight, String color) {
         this.name = name;
         this.age = age;
-        //getStrAge();
         this.weight = weight;
         this.color = color;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getColor() {
-        return color;
-    }
-
     public void setColor(String color) {
         this.color = color;
-    }
-
-    public int getAge() {
-        return age;
     }
 
     private int getAgeWeightValidData(Scanner scanner) {
@@ -84,10 +70,6 @@ public class Animal {
         }
 
         return "лет";
-    }
-
-    public int getWeight() {
-        return weight;
     }
 
     public void setWeight(Scanner scanner) {

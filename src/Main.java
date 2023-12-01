@@ -19,10 +19,10 @@ public class Main {
         while (true) {
             System.out.println("Введите команду ADD/List/Exit");
             String commandStr = scanner.next().toUpperCase(Locale.ROOT).trim();
-                if (!commandValidator.isValidate(commandStr, CommandsData.values())) {
-                    System.out.println("Вы ввели неверную команду");
-                    continue;
-                }
+            if (!commandValidator.isValidate(commandStr, CommandsData.values())) {
+                System.out.println("Вы ввели неверную команду");
+                continue;
+            }
 
             CommandsData commandsData = CommandsData.valueOf(commandStr);
             switch (commandsData) {
@@ -71,6 +71,7 @@ public class Main {
                     animal.say();
                     animal.go();;
                     animal.drink();
+                    animal.eat();
                     if(animal instanceof IFly) {
                         ((IFly) animal).fly();
                     }
@@ -79,8 +80,8 @@ public class Main {
 
                 case LIST:
                     if(animalList.isEmpty()) {
-                      System.out.println("Никого не создали");
-                      continue;
+                        System.out.println("Никого не создали");
+                        continue;
                     }
 
                     for (Animal animalObj: animalList) {
@@ -94,6 +95,5 @@ public class Main {
         }
     }
 }
-
 
 

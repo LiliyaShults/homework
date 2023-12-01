@@ -12,7 +12,12 @@ public class Duck extends Animal implements IFly{
 
     @Override
     public void say() {
-        System.out.println("Кря");
+       System.out.println("Кря");
+    }
+
+    @Override
+    public void eat() {
+       System.out.println("Я ем крупу");
     }
 
     }
