@@ -17,7 +17,6 @@ public class Animal {
     public Animal(String name, int age, int weight, String color) {
         this.name = name;
         this.age = age;
-        //getStrAge();
         this.weight = weight;
         this.color = color;
     }
