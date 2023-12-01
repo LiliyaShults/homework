@@ -40,19 +40,14 @@ public class Main {
 
                     Animal animal = animalFactory.create(AnimalData.valueOf(animalTypeStr));
 
-                 //   System.out.println("Введите имя животного");
-                   // animal.setName(scanner.next());
-                    System.out.println("Введите имя животного");
-                    animal.setName(scanner.next());
-
                     while (true) {
-                        System.out.println("Введите имя животного а кирилице");
+                        System.out.println("Введите имя животного");
                         String nameStr = scanner.next();
-                        if(commandValidator.isDataByRegExp(nameStr, Pattern.compile("^[а-яА-Я]+$"))) {
+                        if(commandValidator.isDataByRegExp(nameStr, Pattern.compile("^[а-яА-Я]{1,50}$"))) {
                             animal.setName(nameStr);
                             break;
                         }
-                        System.out.println("Вы ввели неверный цвет животного");
+                        System.out.println("Введите имя животного на кирилице не более 50 букв");
                     }
 
                     System.out.println("Введите возраст животного");
@@ -64,11 +59,11 @@ public class Main {
                     while (true) {
                         System.out.println("Введите цвет животного");
                         String colorStr = scanner.next();
-                        if(commandValidator.isDataByRegExp(colorStr, Pattern.compile("^[а-яА-Я]+$"))) {
+                        if(commandValidator.isDataByRegExp(colorStr, Pattern.compile("^[а-яА-Я]{1,12}$"))) {
                             animal.setColor(colorStr);
                             break;
                         }
-                        System.out.println("Вы ввели неверный цвет животного");
+                        System.out.println("Введите цвет животного на кирилице не более 12 букв");
                     }
 
                     animalList.add(animal);
@@ -81,6 +76,7 @@ public class Main {
                     }
 
                     break;
+
                 case LIST:
                     if(animalList.isEmpty()) {
                       System.out.println("Никого не создали");

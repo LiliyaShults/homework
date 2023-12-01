@@ -6,20 +6,20 @@ import java.util.regex.Pattern;
 
 public class Animal {
 
-    private String name = "";
-    private String color = "";
-    private int weight = -1;
-    private int age = -1;
-    private String str_age = "";
+    private String name;
+    private String color;
+    private int weight;
+   private int age;
+   private String str_age;
 
     private DataValidator dataValidator = new DataValidator();
 
     public Animal(String name, int age, int weight, String color) {
-      this.name = name;
-     this.age = age;
-      //getStrAge();
-      this.weight = weight;
-      this.color = color;
+        this.name = name;
+        this.age = age;
+        //getStrAge();
+        this.weight = weight;
+        this.color = color;
     }
 
     public String getName() {
@@ -49,12 +49,12 @@ public class Animal {
             if (dataValidator.isDataByRegExp(ageStr, Pattern.compile("^\\d+$"))) {
                 data = Integer.parseInt(ageStr);
                 if (data > 50 || data <= 0) {
-                    System.out.println("Данные введены не корректно");
+                    System.out.println("Данные введены не корректно. Используйте цифры до 50");
                     continue;
                 }
                 break;
             }
-            System.out.println("Данные введены не корректно");
+            System.out.println("Данные введены не корректно. Используйте цифры до 50");
         }
 
         return data;
