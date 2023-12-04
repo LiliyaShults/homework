@@ -4,7 +4,7 @@ import validators.DataValidator;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-public class Animal {
+public abstract class Animal {
 
     private String name;
     private String color;
